@@ -1,25 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
-    <title>Optimiseur de Tournées (Prototype)</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Optimiseur de Tournées Clients</title>
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-       integrity="sha256-20n6fxhC9D6UL/PR3xk876SVar2iKie+/l1QerMAzxP="
-       crossorigin=""/>
+          integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+          crossorigin=""/>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.css"/>
 
+    <script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+
     <link rel="stylesheet" href="style.css">
+
 </head>
 <body>
 
     <div id="mapid"></div>
 
+    <div class="controls">
+        <h1>Optimiseur de Tournées Clients</h1>
+        <p>Sélectionnez votre fichier client (format Excel ou CSV avec Lat/Lng) :</p>
+        <input type="file" id="excelFile" accept=".xls,.xlsx,.csv">
+
+        <div id="results">
+            <h3>Clients trouvés à proximité :</h3>
+            <p>Aucun fichier chargé.</p>
+        </div>
+    </div>
+
+
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
-       integrity="sha256-20n6fxhC9D6UL/PR3xk876SVar2iKie+/l1QerMAzxP="
-       crossorigin=""></script>
+            integrity="sha256-20n6fxhC9D6UL/PR3xk876SVar2iKie+/l1QerMAzxP="
+            crossorigin=""></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.draw/1.0.4/leaflet.draw.js"></script>
 
