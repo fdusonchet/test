@@ -1,0 +1,14 @@
+/* Assurez-vous que la carte a une taille pour être visible */
+#mapid {
+    height: 100vh; /* 100% de la hauteur de la fenêtre */
+    width: 100%; /* 100% de la largeur */
+    padding: 0;
+    margin: 0;
+}
+
+/* Optionnel: styles de base pour le corps */
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Empêche le défilement si la carte prend 100% */
+}
