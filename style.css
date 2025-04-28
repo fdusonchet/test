@@ -1,14 +1,66 @@
-/* Assurez-vous que la carte a une taille pour être visible */
-#mapid {
-    height: 100vh; /* 100% de la hauteur de la fenêtre */
-    width: 100%; /* 100% de la largeur */
-    padding: 0;
-    margin: 0;
-}
-
-/* Optionnel: styles de base pour le corps */
+/*
+Styles de base pour le corps de la page.
+On enlève les marges par défaut et on cache le débordement
+pour que la carte prenne bien toute la place si elle est en plein écran.
+*/
 body {
     padding: 0;
     margin: 0;
-    overflow: hidden; /* Empêche le défilement si la carte prend 100% */
+    overflow: hidden;
+    font-family: sans-serif; /* Une police de caractères simple */
+}
+
+/*
+Style de l'élément div qui va contenir la carte Leaflet.
+Il est ESSENTIEL de lui donner une hauteur et une largeur pour qu'il soit visible.
+Ici, il prend 100% de la hauteur de la fenêtre (viewport height).
+*/
+#mapid {
+    /* Pour une mise en page où la carte prend toute la fenêtre */
+    position: absolute; /* La carte est positionnée de façon absolue */
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 1; /* La carte est en arrière-plan */
+
+    /* Si vous préférez une taille fixe ou proportionnelle, utilisez height et width */
+    /* height: 600px; */
+    /* width: 80%; */
+}
+
+/*
+Style de la zone de contrôle qui contient le bouton d'import, les résultats, etc.
+On la positionne au-dessus de la carte (grâce à z-index) pour qu'elle soit cliquable.
+*/
+.controls {
+    position: relative; /* Positionné par rapport à son flux normal */
+    z-index: 10; /* Au-dessus de la carte */
+    background-color: rgba(255, 255, 255, 0.8); /* Fond semi-transparent */
+    padding: 15px;
+    margin: 15px;
+    border-radius: 5px;
+    max-width: 300px; /* Limite la largeur */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2); /* Ombre pour la faire ressortir */
+}
+
+/* Styles de base pour la liste de résultats */
+#results h3 {
+    margin-top: 10px;
+    margin-bottom: 5px;
+    font-size: 1em;
+}
+
+#results ul {
+    list-style: none;
+    padding: 0;
+    max-height: 200px; /* Limite la hauteur de la liste si elle devient très longue */
+    overflow-y: auto; /* Ajoute une barre de défilement si la liste est trop longue */
+}
+
+#results li {
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+    padding: 5px;
+    font-size: 0.9em;
 }
